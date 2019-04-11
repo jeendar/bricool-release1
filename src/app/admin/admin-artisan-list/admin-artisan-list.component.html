@@ -1,0 +1,82 @@
+
+<div class="wrapper ">
+  <app-admin-nav></app-admin-nav>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">Les Artisans Inscrits</h4>
+                <p class="card-category"> <i class="material-icons">content_paste</i>Valider les informations des artisans </p>
+              </div>
+              <div class="card-body">
+                  <div class="table-wrapper-scroll-y">
+                <table class="table table-striped table-responsive-md btn-table">
+
+                  <thead class=" text-primary">
+                    <tr>
+                      <th scope="col"><strong>#</strong></th>
+                      <th scope="col"><strong>Nom</strong></th>
+                      <th scope="col"><strong>Prénom</strong></th>
+                      <th scope="col"><strong>Téléphone</strong></th>
+                      <th scope="col"><strong>Email</strong></th>
+                      <th scope="col"><strong>Validation</strong></th>
+                      <th scope="col"><strong>Role</strong></th>
+                      <th scope="col"><strong>Portfolio</strong></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr *ngFor="let artisan of artisans">
+                      <th scope="row">{{artisan.idArtisant}}</th>
+                      <td>{{ artisan.firstname }}</td>
+                      <td>{{artisan.lastname}}</td>
+                      <td>{{artisan.phone}}</td>
+                      <td>{{artisan.email}}</td>
+                      
+
+                      <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="tableDefaultCheck" [checked]="artisan.status">
+                        <label class="custom-control-label" for="tableDefaultCheck1">{{artisan.status}}</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="tableDefaultCheck" [checked]="artisan.role">
+                        <label class="custom-control-label" for="tableDefaultCheck1">{{artisan.role}}</label>
+                      </div>
+                    </td>
+                    
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm m-0 waves-effect" (click)="showArtisan(artisan)">Voir Plus</a>
+                    </td>
+                    </tr>
+
+                  
+                  </tbody>
+
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
+
+

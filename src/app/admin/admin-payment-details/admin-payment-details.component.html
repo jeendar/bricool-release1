@@ -1,0 +1,54 @@
+<div class="wrapper ">
+    <app-admin-nav></app-admin-nav>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <app-deconnecter></app-deconnecter>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+
+
+            <div class=" col-md-6 ">
+
+              <!-- Card -->
+              <div class="card indigo">
+
+                <!-- Content -->
+                <div class="card-body white-text text-center">
+
+                  <!-- Offer -->
+                  <h5 class="mb-4">Details de paiement</h5>
+
+
+                  <!--Price -->
+                  <p>Id de paiement : <strong>{{paymentDetails.id}}</strong></p>
+                  <p>Nom de payeur : <strong>{{paymentDetails.payerName}}</strong></p>
+                  <p>Email de payeur : <strong>{{paymentDetails.payerEmail}}</strong></p>
+                  <p>Téléphone de payeur : <strong>{{paymentDetails.payerPhone}}</strong></p>
+                  <p>Date de paiement : <strong>{{paymentDetails.receivedTime}}</strong></p>
+                  <p>Montant : <strong>{{paymentDetails.receivedAmount}} USD</strong></p>
+                  <p>Bénéficiaire: <strong>{{paymentDetails.lastname}} {{paymentDetails.firstname}}</strong></p>
+                  <p>Etat de paiement: <strong *ngIf = "paymentDetails.payment_status">Effectuer</strong>
+                    <strong>
+                    <a *ngIf = "!paymentDetails.payment_status"  class="btn btn-yellow btn-rounded my-3" (click)="validate()" >
+                        <i class="fas fa-edit"></i>Valider</a>
+                  </strong></p>
+                </div>
+                <!-- Content -->
+
+              </div>
+              <!-- Card -->
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+
+

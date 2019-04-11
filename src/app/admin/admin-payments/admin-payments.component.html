@@ -1,0 +1,97 @@
+<div class="wrapper ">
+    <app-admin-nav></app-admin-nav>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:void(0)">Paiements</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLinkDec" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkDec">
+                  <a class="dropdown-item" routerLink="/admin/sign-out">Déconnecter </a>      
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+  
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "> Les Paiements</h4>
+                  <p class="card-category"> <i class="material-icons">content_paste</i>Valider les informations des artisans </p>
+                </div>
+                <div class="card-body">
+                    <div class="table-wrapper-scroll-y">
+                  <table class="table table-striped table-responsive-md btn-table">
+  
+                    <thead class=" text-primary">
+                      <tr>
+                        <th scope="col"><strong>#</strong></th>
+                        <th scope="col"><strong>Payeur</strong></th>
+                        <th scope="col"><strong>Payeur Email</strong></th>
+                        <th scope="col"><strong>Payeur Téléphone</strong></th>
+                        <th scope="col"><strong>Montant USD</strong></th>
+                        <th scope="col"><strong>Bénéficiaire</strong></th>
+                        <th scope="col"><strong>Etat de paiement</strong></th>
+                        <th scope="col"><strong></strong></th>
+                      </tr>
+                    </thead>
+  
+                    <tbody>
+                      <tr *ngFor="let pay of payments">
+                        <th scope="row">{{pay.id}}</th>
+                        <td>{{pay.payerName}}</td>
+                        <td>{{pay.payerEmail}}</td>
+                        <td>{{pay.payerPhone}}</td>
+                        <td>{{pay.receivedAmount}}</td>
+                        <td>{{pay.idArtisan}}</td>
+                        <td>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="tableDefaultCheck" [checked]="pay.payment_status == 1">
+                            <label class="custom-control-label" for="tableDefaultCheck1"></label>
+                          </div>
+                        </td>
+                        <td>
+                          <a class="btn btn-outline-primary btn-sm m-0 waves-effect" (click)="showPayment(pay)">Voir Plus</a>
+                        </td>
+                      </tr>
+  
+                    
+                    </tbody>
+  
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+  
+  
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>

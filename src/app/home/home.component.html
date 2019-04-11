@@ -1,0 +1,376 @@
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar ">
+    <div class="container">
+
+      <!-- Brand -->
+      <!--<a class="navbar-brand" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+        <strong>BriCooL</strong>
+      </a> -->
+      <a routerLink="/home" class="simple-text logo-normal">
+        <img src="../../assets/images/logo/logofinal.PNG" width="140px" height="60px"/>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse dotted-scrollspy" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="main-nav nav smooth-scroll navbar-nav mr-auto ">
+          <li class="nav-item  ">
+            <a class="nav-link" href="#home"> <i class="fa fa-home" aria-hidden="true"></i> Acceuil
+
+            </a>
+          </li>
+          <li class="nav-item"  routerLinkActive="active">
+            <a  class="nav-link" href="#service" >Services</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/artisan/sign-in" >Artisan</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/client/sign-in" >Client</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav nav-flex-icons">
+           <li class="nav-item">
+            <a href="#contact" class="nav-link border border-light rounded">
+              <i class="fa fa-envelope" aria-hidden="true"></i> Contactez-nous
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+<section  id="home" class="section">
+  <mdb-carousel id="carousel-example-1z" class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-carousel-item >
+      <div class="view w-100">
+        <img class="d-block w-100 p" src="../../assets/img/artisan1.jpg" alt="First slide">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="../../assets/img/artisan3.jpg" alt="Third slide">
+        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="../../assets/img/artisan4.jpg" alt="Third slide">
+        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="../../assets/img/artisan8.jpg" alt="Second slide">
+        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="../../assets/img/artisan5.jpg" alt="Third slide">
+        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+    </mdb-carousel-item>
+
+
+    <div class="main-text hidden-xs">
+      <div class="col-md-12 text-center">
+        <h1 style="font-size: 55px;">Besoin d'un service ou d'un coup de main? </h1>
+        <h2>Trouvez la personne qu'il vous faut en quelques clics! </h2><br /><br>
+        <div class="form-row">
+          <div class="form-group col-md-4" >
+
+              <select id="inputState" class="form-control" (change)="selectedVal($event)">
+                <option selected>choisissez un métier.</option>
+                <option *ngFor = "let metier of metiers" value="{{metier.idMetier}}">{{metier.nameMetier}}</option>
+              </select>
+          </div>
+          <div class="form-group col-md-4">
+
+              <select id="inputState" class="form-control" (change)="selectedServ($event)">
+                <option selected>choisissez un service</option>
+                <option *ngFor = "let service of services" value="{{service.idService}}">{{service.name_service}}</option>
+              </select>
+          </div>
+          <div class="form-group col-md-4">
+
+              <select id="inputState" class="form-control" (change)="selectedCity($event)" >
+                <option selected>choisissez une ville</option>
+                <option *ngFor = "let city of cities" value="{{city.city}}">{{city.city}}</option>
+              </select>
+          </div>
+        </div>
+        <div class="">
+              <a class="btn btn-clear btn-sm btn-min-block" href="#" (click)="rechercher()">Rechercher</a>
+        </div>
+      </div>
+    </div>
+  </mdb-carousel>
+</section>
+  <!--/.Carousel Wrapper-->
+  <!--Main layout-->
+  <main>
+    <div class="container">
+      <!-- Section: Testimonials v.4 -->
+
+  <!-- Section: Testimonials v.4 -->
+      <!--Section: Main info-->
+      <section class="section text-center" id="prestataires" >
+
+        
+
+          <div class="row text-center" >
+
+            <!--Grid column-->
+            <div class="col-md-3 mb-md-0 mb-5" *ngFor="let artisan of arts">
+              <br>
+              <div class="testimonial">
+                <!--Avatar-->
+                <div class="avatar mx-auto">
+                  <img src="{{artisan.picture}}" class="rounded-circle z-depth-1 img-fluid">
+                </div>
+                <!--Content-->
+                <h4 class="font-weight-bold dark-grey-text mt-4">{{artisan.firstname}} {{artisan.lastname}}</h4>
+                <p class="font-weight-normal dark-grey-text">
+                  <i class="fas fa-quote-left pr-2"></i>{{artisan.description}}</p>
+                <!--Review-->
+                <div class="orange-text">
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star"> </i>
+                  <i class="fas fa-star-half-alt"> </i>
+                </div>
+                <button type="button" class="btn purple-gradient btn-sm" (click)="voirPlus(artisan)"><i class="far fa-eye"></i> voir plus</button>
+              </div>
+
+            </div>
+            <!--Grid column-->
+
+           
+
+          </div>
+          <!--Grid row-->
+          <br />
+         
+
+        </section>
+
+      <!--Section: Main info-->
+
+      <hr class="my-5">
+
+      <!--Section: Main features & Quick Start-->
+      <section id="service" >
+
+        <h3 class="h3 text-center mb-5">En quoi pouvons-nous vous aider ?</h3>
+
+        <div class="text-center"style="display: flex; max-width: 850px; margin: auto;padding:20px;background-color: rgba(255,255,255,0.7);border-radius: 5px">
+          <div class="clickable">
+            <a href="#"  style="font-size: 18px; font-weight: 500; color: #003366">
+              <img class="clickable-img" src="https://i.imgur.com/29wMUTM.png" width="100px" height="100px" alt=""> Plomberie &amp; chauffage </a>
+          </div>
+          <div class="clickable">
+            <a style="font-size: 18px; font-weight: 500; color: #003366" href="#">
+              <img class="clickable-img" src="https://i.imgur.com/6UTAvpT.png" width="100px" height="100px" alt=""> Serrurerie, portes &amp; fenêtres </a>
+          </div>
+          <div class="clickable" >
+            <a style="font-size: 18px; font-weight: 500; color: #003366" href="#">
+              <img class="clickable-img" src="https://i.imgur.com/00yIMCk.png" width="100px" height="100px" alt=""> Électricité</a>
+          </div>
+          <div class="clickable" >
+            <a style="font-size: 18px; font-weight: 500; color: #003366" href="#">
+              <img class="clickable-img" src="https://i.imgur.com/nmIuFw9.png" width="100px" height="100px" alt=""> Bricolage &amp; rénovation</a>
+          </div>
+          <div class="clickable" >
+            <a style="font-size: 18px; font-weight: 500; color: #003366" href="#" alt="Bob! Dépannage">
+              <img class="clickable-img" src="https://i.imgur.com/wuvt8Sj.png" width="100px" height="100px" alt="">Électroménager &amp; climatisation</a>
+          </div>
+        </div>
+      </section>
+      <!--Section: Main features & Quick Start-->
+
+      <hr class="my-5">
+
+      <!--Section: Not enough-->
+      <section id="plaire">
+
+        <h2 class="my-5 h3 text-center">Ce qui va vous plaire</h2>
+
+        <!--First row-->
+        <div class="row features-small mb-5 mt-3 wow fadeIn">
+
+          <!--First column-->
+          <div class="col-md-4">
+            <!--First row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Grande variété</h6>
+                <p class="grey-text">Accédez à une base de données riche
+                </p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Recherche ciblée</h6>
+                <p class="grey-text">Saisissez vos critères et trouvez la bonne personne.
+                </p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Temps gagné</h6>
+                <p class="grey-text">Cherchez et comparez les services en quelques clics</p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-md-4 flex-center">
+            <img src="../../assets/images/icons/43.png" alt="" class="z-depth-0 img-fluid">
+          </div>
+
+          <div class="col-md-4 mt-2 ">
+            <!--First row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Compte personnel</h6>
+                <p class="grey-text">Votre espace dédié vous permet de gérer facilement votre activité</p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Espace sécurisé</h6>
+                <p class="grey-text">Gardez le contrôle sur vos données.</p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-check-circle fa-2x it"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="feature-title">Optimiser</h6>
+                <p class="grey-text">Surveillez votre activité.
+                </p>
+                <div style="height:15px"></div>
+              </div>
+            </div>
+            <!--/Third row-->
+
+
+          </div>
+          <!--/Third column-->
+
+        </div>
+        <!--/First row-->
+
+      </section>
+      <!--Section: Not enough-->
+
+      <hr class="mb-5">
+
+      <!--Section: More-->
+      <section id="contact">
+
+        <h2 class="my-5 h3 text-center">...Pour plus d'informations</h2>
+
+        <app-contact></app-contact>
+
+      </section>
+      <!--Section: More-->
+
+    </div>
+
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white"  routerLink="/client/sign-up" target="_blank" role="button">Inscrivez-vous comme client
+
+      </a>
+      <a class="btn btn-outline-white"  routerLink="/artisan/sign-up" target="_blank" role="button">Inscrivez-vous comme artisan
+
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <!--Facebook-->
+      <a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+      <!--Twitter-->
+      <a class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a>
+      <!--Google +-->
+      <a class="btn-floating btn-lg btn-gplus" type="button" role="button"><i class="fab fa-google-plus-g"></i></a>
+      <!--Linkedin-->
+      <a class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
+      <!--Instagram-->
+      <a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a>
+      <!--Pinterest-->
+     
+      <a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a>
+      
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright 
+      <a href="#" target="_blank"> Bricool.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+

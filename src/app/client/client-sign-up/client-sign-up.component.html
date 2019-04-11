@@ -1,0 +1,137 @@
+<div class="card " style=" position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%); ">
+    <h3 class="card-header">Inscription</h3>
+  <div class="card-body">
+      <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+              <div>
+                <form onSubmit="return false" novalidate  [formGroup]="personalForm">
+                  <div class="content" >
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-6" [class.bad]="LastName.invalid && LastName.touched">
+
+                          <label for="lastname">Nom <span class="required">*</span></label>
+                          <input type="text" formControlName="lastname" class="form-control" placeholder="Entrer votre Nom">
+                          <div *ngIf="LastName.invalid && LastName.touched">
+                              <small *ngIf="LastName.errors?.required" class="text-danger"><b>Nom</b> est obligatoire</small>
+                              <small *ngIf="LastName.errors?.pattern" class="text-danger"><b>Nom</b> invalide</small>
+                          </div>
+                        </div>
+                        <div class="col-md-6" [class.bad]="FirstName.invalid && FirstName.touched">
+                            <label for="firstname">Prénom <span class="required">*</span></label>
+                            <input type="text"  formControlName="firstname" class="form-control" placeholder="Entrer votre Prénom">
+                            <div *ngIf="FirstName.invalid && FirstName.touched">
+                                <small *ngIf="FirstName.errors?.required" class="text-danger"><b>Prenom</b> est obligatoire</small>
+                                <small *ngIf="FirstName.errors?.pattern" class="text-danger"><b>Prenom</b> invalide</small>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6" [class.bad]="Dob.invalid && Dob.touched">
+                            <label for="dob"> Date de naissance <span class="required">*</span> </label>
+                            <input type="date" formControlName="dob" class="form-control"  >
+                            <div *ngIf="Dob.invalid && Dob.touched">
+                                <small *ngIf="Dob.errors?.required" class="text-danger"><b>Date de naissance</b> obligatoire</small>
+                              </div>
+                          </div>
+                          <div class="col-md-4" [class.bad]="Phone.invalid && Phone.touched">
+                              <label for="phone">Numéro de téléphone <span class="required">*</span></label>
+                              <input type="text"  formControlName="phone" class="form-control"  placeholder="Entrer votre Téléphone">
+                              <div *ngIf="Phone.invalid && Phone.touched">
+                                  <small *ngIf="Phone.errors?.required" class="text-danger"><b>Numéro</b> est obligatoire</small>
+                                  <small *ngIf="Phone.errors?.pattern" class="text-danger"><b>Numéro</b> invalide</small>
+                              </div>
+                            </div>
+                            <div class="col-md-2" [class.bad]=" Sexe.touched">
+                              <label for="sexe">Sexe<span class="required">*</span></label>
+                              <select class="form-control" formControlName="sexe" >
+                                <option value="0">F</option>
+                                <option value="1">H</option>
+                            </select>
+                              <div *ngIf="Sexe.touched">
+                                  <small *ngIf="Sexe.errors?.required" class="text-danger"><b>Ce champ</b> est obligatoire</small>
+                              </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <div id="test-l-2" role="tabpanel" class="content" aria-labelledby="stepper1trigger2">
+            <div class="form-group" formGroupName="address">
+                <div class="row">
+                  <div class="col-md-6" [class.bad]="Street.invalid && Street.touched">
+                    <label for="street">Adresse <span class="required">*</span></label>
+                    <input type="text" class="form-control" formControlName="street"  placeholder="Entrer votre Adresse">
+                    <div *ngIf="Street.touched && Street.invalid">
+                        <small *ngIf="Street.errors?.required" class="text-danger"><b>Adresse</b> est obligatoire</small>
+                        <small *ngIf="Street.errors?.minlength" class="text-danger"><b>Adresse</b> doit avoir au moins 3 caractere</small>
+                    </div>
+                  </div>
+                  <div class="col-md-6" [class.bad]="  City.touched">
+                      <label for="city">Ville <span class="required">*</span></label>
+                      <select class="form-control" formControlName="city" >
+                         <option value=""disabled selected> Choisissez votre ville</option>
+                         <option value="Marrakech">Marrakech</option>
+                         <option value="Fes">Fes</option>
+                      </select>
+                      <div *ngIf=" City.touched">
+                          <small *ngIf="City.errors?.required" class="text-danger"><b>Ville</b> est obligatoire</small>
+                        </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-l-3" role="tabpanel" class="content " aria-labelledby="stepper1trigger3">
+            <div class="form-group" formGroupName="account">
+                <div class="row">
+                  <div class="col-md-6" [class.bad]="Email.invalid && Email.touched">
+                    <label for="email"> Email <span class="required">*</span></label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Entrer votre Email">
+                    <div *ngIf="Email.invalid && Email.touched">
+                        <small *ngIf="Email.errors?.required" class="text-danger"><b>Email</b> est obligatoire</small>
+                        <small *ngIf="Email.errors?.pattern" class="text-danger"><b>Email</b> invalide</small>
+                      </div>
+                  </div>
+                  <div class="col-md-6" [class.bad]="Pwd.invalid && Pwd.touched">
+                      <label for="pwd">Mot de passe <span class="required">*</span></label>
+                      <input type="password" class="form-control" formControlName="pwd" placeholder="choisissez un mot de passe">
+                      <div *ngIf="Pwd.invalid && Pwd.touched">
+                          <small *ngIf="Pwd.errors?.required" class="text-danger"><b>Mot de passe</b> est obligatoire</small>
+                          <small *ngIf="Pwd.errors?.minlength" class="text-danger"><b>Mot de passe</b> doit avoir au minimum 8 caractere</small>
+                        </div>
+                  </div>
+                </div>
+                <div class="row" [class.bad]="personalForm.errors?.misMatch">
+                    <!--  -->
+                    <div class="col-md-12">
+                      <label for="cpwd">Confirmer le mot de passe <span class="required">*</span></label>
+                      <input type="password" class="form-control" formControlName="cpwd" placeholder="Confirmez un mot de passe"                      >
+                      <div *ngIf="personalForm.errors?.misMatch">
+                          <small *ngIf="personalForm.errors?.misMatch" class="text-danger"><b>Mot de passe</b> est different</small>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+
+        </div>
+
+
+
+        <div id="test-l-4" class="content text-center" >
+                <button type="submit"class="btn btn-primary pull-right" (click)="submitData()" ><i class='far fa-check-circle' ></i> S'inscrire</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+

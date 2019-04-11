@@ -1,0 +1,84 @@
+
+<div class="wrapper ">
+    <app-admin-nav></app-admin-nav>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <app-deconnecter></app-deconnecter>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "> Les Clients Inscrits</h4>
+                  <p class="card-category"> <i class="material-icons">content_paste</i>Valider les informations des clients </p>
+                </div>
+                <div class="card-body">
+                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                        <thead>
+                          <tr >
+                            <th class="th-sm">Nom
+                            </th>
+                            <th class="th-sm">Prénom
+                            </th>
+                            <th class="th-sm">Date de naissance
+                            </th>
+                            <th class="th-sm">Téléphone
+                            </th>
+                            <th class="th-sm">VILLE
+                            </th>
+                            <th class="th-sm">Email
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let client of clients">
+                            <td>{{client.lastname}}</td>
+                            <td>{{client.firstname}}</td>
+                            <td>{{client.dob}}</td>
+                            <td>{{client.phone}}</td>
+                            <td>{{client.street}}</td>
+                            <td>{{client.email}}</td>
+                          </tr>
+                          
+                       
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <th>Name
+                            </th>
+                            <th>Position
+                            </th>
+                            <th>Office
+                            </th>
+                            <th>Age
+                            </th>
+                            <th>Start date
+                            </th>
+                            <th>Salary
+                            </th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+      <app-footer></app-footer>
+
+
+
+    </div>
+  </div>
+
+
+
+  

@@ -1,0 +1,93 @@
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="limiter">
+  
+  <div class="container-login100">
+  
+    <div class="wrap-login100">
+      <form novalidate [formGroup]="loginForm" class="login100-form validate-form">
+  
+        <span class="login100-form-title p-b-43">
+          Se connecter
+        </span>
+
+
+
+        <div class="md-form">
+
+          <input type="text" formControlName="email" id="form1" class="form-control">
+          <label for="form1">Email</label>
+          <div *ngIf="Email.invalid && Email.touched">
+            <small *ngIf="Email.errors?.required" class="text-danger"><b>Email</b> est obligatoire</small>
+            <small *ngIf="Email.errors?.pattern" class="text-danger"><b>Email</b> invalide</small>
+          </div>
+        </div>
+        <br>
+        <div class="md-form">
+          <input type="password" formControlName="pwd" id="form2" class="form-control">
+          <label for="form1">Mot de passe</label>
+          <div *ngIf="Pwd.invalid && Pwd.touched" class="mb-3">
+            <small *ngIf="Pwd.errors?.required" class="text-danger"><b>Mot de passe</b> est obligatoire</small>
+            <small *ngIf="Pwd.errors?.minlength" class="text-danger"><b>Mot de passe</b> doit avoir au minimum 8 caractere</small>
+          </div>
+        </div>
+
+
+
+        <div class="form-group text-center mt-3">
+          <div class="alert alert-danger" *ngIf="hasAnError">
+              {{ errorMessage }}
+          </div>
+        </div>
+
+        <div class="flex-sb-m w-full p-t-3 p-b-32">
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Remember me
+            </label>
+          </div>
+
+          <div>
+            <a href="#" class="txt1">
+              Forgot Password?
+            </a>
+          </div>
+        </div>
+
+
+        <div class="container-login100-form-btn">
+          <button type="submit" [disabled]="!loginForm.valid" (click)="submit()" class="login100-form-btn">
+            Se connecter
+          </button>
+        </div>
+
+
+        <div class="text-center p-t-46 p-b-20">
+          <span class="txt2">
+            Vous n'avez pas de compte? <a [routerLink]="" (click)="goToSignUp();" >Inscrivez-vous</a><br>
+            ou inscrivez-vous en utilisant
+          </span>
+        </div>
+
+        <div class="login100-form-social flex-c-m">
+          <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </form>
+
+      <div class="login100-more" style="background-image: url('../../../assets/img/login.jpg');">
+      </div>
+    </div>
+  </div>
+</div>
+

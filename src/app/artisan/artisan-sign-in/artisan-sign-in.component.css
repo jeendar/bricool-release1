@@ -1,0 +1,28 @@
+.login{
+
+  background-size:cover;
+  padding:10px;
+  height:100%;
+  width:100%;
+  position: fixed;
+  background-image:url(../../../assets/images/bg3.png);
+}
+
+.bttn{
+  padding:10px;
+}
+
+.login .container #login-row #login-column .login-box {
+  margin-top:30px;
+  max-width: 600px;
+  border: 1px solid #9C9C9C;
+  background: #ffffff none repeat scroll 0 0;
+}
+
+.login .container #login-row #login-column .login-box #login-form {
+  padding: 20px;
+}
+.login .container #login-row #login-column .login-box #login-form #register-link {
+  margin-top: -85px;
+}
+

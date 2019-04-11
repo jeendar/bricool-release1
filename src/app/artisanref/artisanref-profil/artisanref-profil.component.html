@@ -1,0 +1,522 @@
+
+<div class="wrapper ">
+  <app-artisanref-nav></app-artisanref-nav>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- Card -->
+            <div class="card card-cascade wider reverse">
+
+              <!-- Card image -->
+              <div class="view view-cascade overlay">
+                <img class="card-img-top" src="../../../assets/img/a1.jpg" alt="Card image cap" >
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>{{currentArtisan.firstname}} {{currentArtisan.lastname}}</strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">Description</h6>
+                <!-- Text -->
+                <p class="card-text">{{currentArtisan.description}}</p>
+
+                <!-- Linkedin -->
+                <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Twitter -->
+                <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+                <!-- Dribbble -->
+                <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-profile block-example border border-secondary">
+              <div class="card-avatar">
+                <a data-toggle="modal" data-target="#basicExampleModal">
+                  <img class="img" src="{{currentArtisan.picture}}" />
+                </a>
+                <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Non, merci</button>
+                          <button type="button" class="btn btn-primary">Modifier</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h6 class="card-category">{{currentArtisan.firstname}} {{currentArtisan.lastname}}</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Ville : {{currentArtisan.city}}</li>
+                  <li class="list-group-item">Tél :  {{currentArtisan.phone}}</li>
+                  <li class="list-group-item">Email : {{currentArtisan.email}}</li>
+                  <li class="list-group-item">Projets <span class="badge badge-primary badge-pill">{{nbrPro}}</span></li>
+                </ul>
+                <span *ngIf = "currentArtisan.verified"  class="btn btn-default btn-rounded my-3">
+                  <i class="fas fa-check"></i> Verified</span>
+              </div>
+
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+      <!--Content-->
+      <div class="modal-content">
+
+        <!--Modal cascading tabs-->
+        <div class="modal-c-tabs">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-address-book"></i>
+               Informations </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-lock"></i>
+                Mot de passe</a>
+            </li>
+          </ul>
+
+          <!-- Tab panels -->
+          <div class="tab-content">
+            <!--Panel 7-->
+            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+              <!--Body-->
+              <div class="modal-body ">
+                  <div class="row">
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.lastname" placeholder="Nom">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.firstname" placeholder="Prénom">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.phone" placeholder="Téléphone">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.email" placeholder="Email">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.street" placeholder="Adresse">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.city" placeholder="Ville">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.commun" placeholder="Région">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="md-form mt-0">
+                          <input type="text" class="form-control" [(ngModel)]="currentArtisan.zipcode" placeholder="Code Postale">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="md-form mt-0">
+                      <input type="text" class="form-control" [(ngModel)]="currentArtisan.description" placeholder="Description">
+                  </div>
+
+
+
+              </div>
+              <!--Footer-->
+              <div class="modal-footer">
+                <div class="options text-center text-md-right mt-1">
+                    <button class="btn btn-info" (click)="updateArtisanInfos(currentArtisan)"><i class="fas fa-edit"></i> Modifier </button>
+                </div>
+                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Non, merci</button>
+              </div>
+
+            </div>
+            <!--/.Panel 7-->
+
+            <!--Panel 8-->
+            <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+              <!--Body-->
+              <div class="modal-body">
+                <div class="md-form form-sm mb-5">
+                  <span><i class="fas fa-envelope prefix"></i></span>
+                  <input type="email" id="modalLRInput12" class="f form-control form-control-sm validate">
+                  <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                </div>
+
+                <div class="md-form form-sm mb-5">
+                  <span><i class="fas fa-lock prefix"></i></span>
+                  <input type="password" id="modalLRInput13" class="f form-control form-control-sm validate">
+                  <label data-error="wrong" data-success="right" for="modalLRInput13">Mot de passe</label>
+                </div>
+
+                <div class="md-form form-sm mb-5">
+                    <span><i class="fas fa-lock prefix"></i></span>
+                    <input type="password" id="modalLRInput13" class="f form-control form-control-sm validate">
+                    <label data-error="wrong" data-success="right" for="modalLRInput13">Nouveau Mot de passe</label>
+                  </div>
+
+                <div class="md-form form-sm mb-4">
+                  <span><i class="fas fa-check-circle prefix"></i></span>
+                  <input type="password" id="modalLRInput14" class="f form-control form-control-sm validate">
+                  <label data-error="wrong" data-success="right" for="modalLRInput14">Confirmer votre noveau Mot de passe</label>
+                </div>
+
+
+
+              </div>
+              <!--Footer-->
+              <div class="modal-footer">
+                  <div class="options text-center text-md-right mt-1">
+                      <button class="btn btn-info"><i class="fas fa-edit"></i> Modifier </button>
+                  </div>
+                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Non, Merci</button>
+              </div>
+            </div>
+            <!--/.Panel 8-->
+          </div>
+
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!--Modal: Login / Register Form-->
+
+  <div class="text-center">
+    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">
+        <i class="fas fa-edit"></i> Modifier le profil</a>
+  </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+              <div class="card  block-example border border-secondary">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Portfolio</h4>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                        <!-- Card -->
+                        <div class="card card-cascade narrower card-ecommerce">
+                          <!-- Card image -->
+                          <div class="view view-cascade overlay">
+                            <img src="../../../assets/images/Projets artisan/2.jpg" class="card-img-top"
+                              alt="sample photo">
+                            <a>
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title">
+                              <strong>
+                                <a href="">Titre</a>
+                              </strong>
+                            </h4>
+
+                            <p class="card-text">Description Description Description Description Description
+                            </p>
+                            <!-- Card footer -->
+                            <div class="card-footer px-1">
+                              <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                          <!-- Card -->
+                          <div class="card card-cascade narrower card-ecommerce">
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay">
+                              <img src="../../../assets/images/Projets artisan/3.jpg" class="card-img-top"
+                                alt="sample photo">
+                              <a>
+                                <div class="mask rgba-white-slight"></div>
+                              </a>
+                            </div>
+                            <div class="card-body card-body-cascade text-center">
+                              <h4 class="card-title">
+                                <strong>
+                                  <a href="">Titre</a>
+                                </strong>
+                              </h4>
+
+                              <p class="card-text">Description Description Description Description Description
+                              </p>
+                              <!-- Card footer -->
+                              <div class="card-footer px-1">
+                                <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                            <!-- Card -->
+                            <div class="card card-cascade narrower card-ecommerce">
+                              <!-- Card image -->
+                              <div class="view view-cascade overlay">
+                                <img src="../../../assets/images/Projets artisan/1.jpg" class="card-img-top"
+                                  alt="sample photo">
+                                <a>
+                                  <div class="mask rgba-white-slight"></div>
+                                </a>
+                              </div>
+                              <div class="card-body card-body-cascade text-center">
+                                <h4 class="card-title">
+                                  <strong>
+                                    <a href="">Titre</a>
+                                  </strong>
+                                </h4>
+
+                                <p class="card-text">Description Description Description Description Description
+                                </p>
+                                <!-- Card footer -->
+                                <div class="card-footer px-1">
+                                  <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                              <!-- Card -->
+                              <div class="card card-cascade narrower card-ecommerce">
+                                <!-- Card image -->
+                                <div class="view view-cascade overlay">
+                                  <img src="../../../assets/images/Projets artisan/1.jpg" class="card-img-top"
+                                    alt="sample photo">
+                                  <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                  </a>
+                                </div>
+                                <div class="card-body card-body-cascade text-center">
+                                  <h4 class="card-title">
+                                    <strong>
+                                      <a href="">Titre</a>
+                                    </strong>
+                                  </h4>
+
+                                  <p class="card-text">Description Description Description Description Description
+                                  </p>
+                                  <!-- Card footer -->
+                                  <div class="card-footer px-1">
+                                    <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Card -->
+                      </div>
+                    </div>
+                    <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+
+                        <!--Indicators-->
+                        <ol class="carousel-indicators">
+                          <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
+                          <li data-target="#carousel-with-lb" data-slide-to="1" class="secondary-color"></li>
+                          <li data-target="#carousel-with-lb" data-slide-to="2" class="secondary-color"></li>
+                        </ol>
+                        <!--/.Indicators-->
+
+                        <!--Slides and lightbox-->
+
+                        <div class="carousel-inner mdb-lightbox" role="listbox">
+                          <div id="mdb-lightbox-ui"></div>
+                          <!--First slide-->
+                          <div class=" carousel-item active text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/1.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/1.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/2.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/2.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/3.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/3.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(10).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(10).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(12).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(12).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.First slide-->
+
+                          <!--Second slide-->
+                          <div class="carousel-item text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(33).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(33).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.Second slide-->
+
+                          <!--Third slide-->
+                          <div class="carousel-item text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(56).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(56).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.Third slide-->
+
+                        </div>
+                        <!--/.Slides-->
+
+                      </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+    </div>
+    </div>
+

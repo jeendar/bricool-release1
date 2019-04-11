@@ -1,0 +1,73 @@
+<div class="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div class="login-box col-md-12">
+                    <form id="login-form" class="form" novalidate [formGroup]="loginForm">
+                        <img src="../../../assets/images/logo/logofinal.PNG" width="180px" height="80px"/>
+                        <div style="float:right;">    
+                            <h1 >Connexion</h1>
+                            <h6 style="text-align:right;">Veuillez vous connecter</h6>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" 
+                                placeholder="Email"
+                                class="form-control" 
+                                formControlName="email"
+                                aria-label="Sizing example input" 
+                                aria-describedby="inputGroup-sizing-default">
+                                
+                        </div>
+                        <div *ngIf="Email.invalid && Email.touched">
+                                    <small *ngIf="Email.errors?.required" class="text-danger"><b>Email</b> est obligatoire</small>
+                                    <small *ngIf="Email.errors?.pattern" class="text-danger"><b>Email</b> invalide</small>
+                                </div>    
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" 
+                                placeholder="Mot de passe"
+                                class="form-control"
+                                formControlName="pwd" 
+                                aria-label="Sizing example input" 
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div *ngIf="Pwd.invalid && Pwd.touched" class="mb-3">
+                            <small *ngIf="Pwd.errors?.required" class="text-danger"><b>Mot de passe</b> est obligatoire</small>
+                        </div>
+                        <div class="form-group text-center mt-3">
+                            <div class="alert alert-danger" *ngIf="hasAnError">
+                                {{ errorMessage }}
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center mt-3">
+                            <button type="submit" class="btn btn-indigo btn-sm" [disabled]="!loginForm.valid" (click)="submit()">
+                                    Me connecter a mon compte
+                            </button>
+                        </div>
+                        <div class="form-group text-center">
+                                Vous avez oublié votre mot de passe ?
+                                <br>
+                                <a [routerLink]="['/ResetPassword']">Cliquez ici</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div id="form-group">
+                            <a [routerLink]="['/artisan/sign-up']" class="bttn form-control btn btn-yellow">Vous n'êtes pas encore inscrit ?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

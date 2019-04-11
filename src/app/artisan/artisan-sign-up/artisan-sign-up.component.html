@@ -1,0 +1,202 @@
+<div class="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-10 offset-md-1">
+                <div class="login-box col-md-12">
+                    <form id="login-form" class="form" [formGroup]="formRegister" novalidate>
+                        <img src="../../../assets/images/logo/logofinal.PNG" width="180px" height="80px"/>
+                        <div style="float:right;">    
+                            <h1 >Inscription</h1>
+                            <h6 style="text-align:right;">Veuillez vous connecter</h6>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="sexe" class="col-form-label-sm">Votre sexe</label>
+                                <select 
+                                    class="form-control form-control-sm" 
+                                    id="sexe"
+                                    formControlName="sexe">
+                                    <option value="1">Homme</option>
+                                    <option value="0">Femme</option>
+                                </select>
+                                
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="lastname" class="col-form-label-sm">Nom</label>
+                                <input type="text" 
+                                formControlName="lastname"
+                                class="form-control form-control-sm" id="lastname" placeholder="Nom"
+                                [class.invalid]="LastName.invalid && LastName.touched"
+                                [class.valid]="LastName.valid && LastName.touched"
+                                >
+                                <div *ngIf="LastName.invalid && LastName.touched">
+                                    <small class="text-danger" *ngIf="LastName.errors?.required"><b>Nom</b> est obligatoire</small>
+                                    <small class="text-danger" *ngIf="LastName.errors?.pattern"><b>Nom</b> est invalide</small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="firstname" class="col-form-label-sm">Prénom</label>
+                                <input type="text" 
+                                    formControlName="firstname"
+                                    class="form-control form-control-sm" id="firstname" placeholder="Prénom"
+                                    [class.invalid]="FirstName.invalid && FirstName.touched"
+                                    [class.valid]="FirstName.valid && FirstName.touched"
+                                    >
+                                    <div *ngIf="FirstName.invalid && FirstName.touched">
+                                        <small class="text-danger" *ngIf="FirstName.errors?.required"><b>Prénom</b> est obligatoire</small>
+                                        <small class="text-danger" *ngIf="FirstName.errors?.pattern"><b>Prénom</b> est invalide</small>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="dob" class="col-form-label-sm">Date de naissance</label>
+                                <input type="date" 
+                                    formControlName="dob"
+                                    class="form-control form-control-sm" id="dob"
+                                    [class.invalid]="Dob.invalid && Dob.touched"
+                                    [class.valid]="Dob.valid && Dob.touched"
+                                    >
+                                    <div *ngIf="Dob.touched && Dob.invalid">
+                                        <small *ngIf="Dob.errors?.required" class="text-danger"><b>Date de naissance</b> est obligatoire</small>
+                                    </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone" class="col-form-label-sm">Téléphone</label>
+                                <input type="tel" 
+                                formControlName="phone"    
+                                class="form-control form-control-sm" id="phone" placeholder="Téléphone"
+                                [class.invalid]="Phone.invalid && Phone.touched"
+                                [class.valid]="Phone.valid && Phone.touched"
+                                >
+                                <div *ngIf="Phone.touched && Phone.invalid">
+                                    <small *ngIf="Phone.errors?.required" class="text-danger"><b>numéro de téléphone</b> est obligatoire</small>
+                                    <small *ngIf="Phone.errors?.pattern" class="text-danger"><b>numéro de téléphone</b> invalide</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div formGroupName="address">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="address" class="col-form-label-sm">Adresse</label>
+                                <input type="text" 
+                                    formControlName="street"
+                                    class="form-control form-control-sm" 
+                                    id="address" 
+                                    placeholder="Veuillez introduire votre adresse"
+                                    [class.invalid]="Street.invalid && Street.touched"
+                                    [class.valid]="Street.valid && Street.touched"
+                                    >
+                                    <div *ngIf="Street.touched && Street.invalid">
+                                        <small *ngIf="Street.errors?.required" class="text-danger"><b>Adresse</b> est obligatoire</small>
+                                        <small *ngIf="Street.errors?.minlength" class="text-danger"><b>Adresse</b> doit avoir au moins 3 caractere</small>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="state" class="col-form-label-sm">Régione</label>
+                                <input type="text"
+                                formControlName="state"
+                                    class="form-control form-control-sm" 
+                                    id="state" 
+                                    placeholder="Veuillez introduire votre régione"
+                                    [class.invalid]="State.invalid && State.touched"
+                                    [class.valid]="State.valid && State.touched">
+                                <div *ngIf="State.touched && State.invalid">
+                                    <small *ngIf="State.errors?.required" class="text-danger"><b>Régione</b> est obligatoire</small>
+                                    <small *ngIf="State.errors?.minlength" class="text-danger"><b>Régione</b> doit avoir au moins 3 caractere</small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="city" class="col-form-label-sm">Ville</label>
+                                <input type="text"
+                                formControlName="city"
+                                    class="form-control form-control-sm" 
+                                    id="city" 
+                                    placeholder="Veuillez introduire votre régione"
+                                    [class.invalid]="City.invalid && City.touched"
+                                    [class.valid]="City.valid && City.touched">
+                                <div *ngIf="City.touched && City.invalid">
+                                    <small *ngIf="City.errors?.required" class="text-danger"><b>Ville</b> est obligatoire</small>
+                                    <small *ngIf="City.errors?.minlength" class="text-danger"><b>Ville</b> doit avoir au moins 3 caractere</small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="zipcode" class="col-form-label-sm">Code postale</label>
+                                <input type="text" 
+                                formControlName="zipcode" id="zipcode" class="form-control form-control-sm"
+                                [class.invalid]="ZipCode.invalid && ZipCode.touched"
+                                [class.valid]="ZipCode.valid && ZipCode.touched"
+                                >
+                                <div *ngIf="ZipCode.invalid && ZipCode.touched">
+                                        <small *ngIf="ZipCode.errors?.required" class="text-danger"><b>Code postal</b> est obligatoire</small>
+                                        <small *ngIf="ZipCode.errors?.pattern" class="text-danger"><b>Code postal</b> invalide</small>
+                                        <small *ngIf="ZipCode.errors?.minlength && !ZipCode.errors?.pattern" class="text-danger"><b>Code postal</b> doit avoir au minimum 5 nombre</small>
+                                        <small *ngIf="ZipCode.errors?.maxlength && !ZipCode.errors?.pattern" class="text-danger"><b>Code postal</b> doit avoir au maximum 5 nombre</small>
+                                      </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div formGroupName="account">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="email" class="col-form-label-sm">Email *</label>
+                                <input type="text" formControlName="email" id="email" class="form-control form-control-sm" 
+                                placeholder="Email"
+                                [class.invalid]="Email.invalid && Email.touched"
+                                [class.valid]="Email.valid && Email.touched"
+                                >
+                                <div *ngIf="Email.invalid && Email.touched">
+                                    <small *ngIf="Email.errors?.required" class="text-danger"><b>Email</b> est obligatoire</small>
+                                    <small *ngIf="Email.errors?.pattern" class="text-danger"><b>Email</b> invalide</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="pwd" class="col-form-label-sm">Mot de passe *</label>
+                                <input type="password" id="pwd" 
+                                formControlName="pwd"
+                                class="form-control form-control-sm" placeholder="Mot de passe"
+                                [class.invalid]="Pwd.invalid && Pwd.touched"
+                                [class.valid]="Pwd.valid && Pwd.touched">
+                                <div *ngIf="Pwd.invalid && Pwd.touched">
+                                    <small *ngIf="Pwd.errors?.required" class="text-danger"><b>Mot de passe</b> est obligatoire</small>
+                                    <small *ngIf="Pwd.errors?.minlength" class="text-danger"><b>Mot de passe</b> doit avoir au minimum 8 caractere</small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cpwd" class="col-form-label-sm">Confirmer le mot de passe *</label>
+                                <input type="password" id="cpwd" 
+                                class="form-control form-control-sm" 
+                                formControlName="cpwd"
+                                placeholder="Confirmer le mot de passe"
+                                [class.invalid]="CPwd.invalid && CPwd.touched"
+                                [class.valid]="CPwd.valid && CPwd.touched">
+                                <div *ngIf="formRegister.errors?.misMatch">
+                                    <small *ngIf="formRegister.errors?.misMatch" class="text-danger"><b>Mot de passe</b> est different</small>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div id="form-group">
+                            <button type="submit" [disabled]="!formRegister.valid" (click)="submit()" class="bttn form-control btn btn-yellow">Créer mon compte</button>
+                        </div>
+                        <div id="form-group" *ngIf="hasAnError">
+                            <div class="alert alert-danger">
+                                {{ errorMessage }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

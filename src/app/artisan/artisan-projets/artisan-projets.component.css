@@ -1,0 +1,28 @@
+@import url("../../../assets/css-artisan/material-dashboard.css");
+
+@import url("../../../assets/demo/demo.css");
+
+@import url("../../../assets/MDB-Free_4.7.0/css/modules/animations-extended.min.css");
+
+
+span{
+  position: absolute;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+label{
+  padding-left: 35px;
+
+}
+.f{
+  padding-left: 35px;
+
+}
+
+
+.my-drop-zone { border: dotted 3px lightgray; }
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+html, body { height: 100%; }

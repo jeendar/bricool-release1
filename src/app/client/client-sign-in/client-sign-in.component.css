@@ -1,0 +1,6 @@
+@import url("../../../assets/css-login/main.css");
+@import url("../../../assets/css-login/util.css");
+
+    .login100-more{
+        background-image: url('../../../assets/img/login.jpg');
+    }

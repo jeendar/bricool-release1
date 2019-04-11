@@ -1,0 +1,161 @@
+
+<div class="wrapper ">
+  <app-client-nav></app-client-nav>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- Card -->
+            <div class="card card-cascade wider reverse">
+
+              <!-- Card image -->
+              <div class="view view-cascade overlay">
+                <img class="card-img-top" src="../../../assets/img/a1.jpg" alt="Card image cap" >
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold indigo-text py-2">{{artisan.firstname}} {{artisan.lastname}}</h4>
+                <!-- Subtitle -->
+                
+                <!-- Text -->
+                <p class="card-text">{{artisan.description}}</p>
+
+                <!-- Linkedin -->
+                <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Twitter -->
+                <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+                <!-- Dribbble -->
+                <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-profile block-example border border-secondary">
+              <div class="card-avatar">
+                  <img class="img" src="{{artisan.picture}}" />
+
+              </div>
+
+              <div class="card-body">
+                <h4 class="card-category">{{artisan.firstname}} {{artisan.lastname}}</h4>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Adress : {{artisan.street}}</li>
+                  <li class="list-group-item">Tél : {{artisan.phone}}</li>
+                  <li class="list-group-item">Email : {{artisan.email}}</li>
+                  <li class="list-group-item">Projets <span class="badge badge-primary badge-pill">{{nbrPro}}</span></li>
+                  <li class="list-group-item">
+                      <div class="md-form">
+                        <input type="number" id="finalAmount" [(ngModel)]="finalAmount" class="form-control form-control-sm">
+                        <label for="finalAmount" class="">Montant (USD)</label>
+                      </div>  
+                      <div id="paypal-button-container"></div>
+                    </li>
+                  <star-rating [starType]="'svg'" [rating]="4" (ratingChange)="onRatingChange($event)"></star-rating>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+              <div class="card  block-example border border-secondary">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Portfolio</h4>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Card -->                          
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor="let project of artisanProjects">
+                              <!-- Card -->
+                              <div class="card card-cascade narrower card-ecommerce">
+                                <!-- Card image -->
+                                <div class="view view-cascade overlay">
+                                  <img src="{{project.b64Image}}" class="card-img-top" alt="sample photo">
+                                  <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                  </a>
+                                </div>
+                                <div class="card-body card-body-cascade text-center">
+                                  <h4 class="card-title">
+                                    <strong>
+                                      <a href="">{{project.title}}</a>
+                                    </strong>
+                                  </h4>
+                                <p class="card-text">{{project.description}}
+                                </p>
+                                  <!-- Card footer -->
+                                  <div class="card-footer px-1">
+                                    <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Card -->
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header">
+                <i class="far fa-comment"></i>
+
+                <h3 class="box-title">Les commentaires</h3>
+
+              </div>
+              <div class="box-body chat" id="chat-box">
+                <div *ngIf="feedBacks != null">
+                  <!-- chat item -->
+                  <div class="item" *ngFor="let feedback of feedBacks">
+                    <img src="../../../assets/img/user4-128x128.jpg" alt="user image" class="online">
+  
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                        {{feedback.CLastName}} {{feedback.CFirstName}}
+                      </a>
+                      {{feedback.review}}
+                    </p>
+                  </div>
+                </div>
+                <div class="item" *ngIf="feedBacks == null">
+                  No Comments found for this Artisan !
+                </div>
+                <!-- /.item -->
+                <!-- /.chat -->
+                <div class="box-footer">
+                  <div class="input-group">
+                    <input class="form-control" [(ngModel)]="artisan.feedbackReview" placeholder="Votre commentaire ...">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-success" (click)="addComment()"><i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+
+          <app-footer></app-footer>
+          </div>
+          </div>
+

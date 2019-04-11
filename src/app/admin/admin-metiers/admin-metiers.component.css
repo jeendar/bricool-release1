@@ -1,0 +1,14 @@
+
+
+@import url("../../../assets/css-artisan/material-dashboard.css");
+@import url("../../../assets/demo/demo.css");
+
+
+
+
+.table-wrapper-scroll-y {
+  display: block;
+  max-height: 200px;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  }

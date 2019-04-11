@@ -1,0 +1,151 @@
+
+<div class="wrapper ">
+  <app-admin-nav></app-admin-nav>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title "> Les Metiers</h4>
+              </div>
+              <div class="card-body">
+                
+                
+                <div class="modal fade" id="newMetierModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <form name="addForm" [formGroup]="metierForm" novalidate>
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Ajouter Nouveau métier</h5>
+                          
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          
+                              <div class="md-form">
+                                  <input type="text" 
+                                    id="name" 
+                                    class="form-control"
+                                    formControlName="name"
+                                    (keyup)="checkMetier()"
+                                    [class.invalid]="Name.invalid && Name.touched"
+                                    [class.valid]="Name.valid && Name.touched">
+                                  <label for="name" [class.invalid]="Name.invalid && Name.touched"
+                                  [class.valid]="Name.valid && Name.touched">Nom</label>
+                                  <div *ngIf="Name.touched && Name.invalid">
+                                      <small *ngIf="Name.errors?.required" class="text-danger"><b>Le nom</b> est obligatoire</small>
+                                  </div>
+                                  <div *ngIf="exist">
+                                      <small *ngIf="exist" class="text-danger"><b>Metier</b> existe déja</small>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clearMetier()">Non, merci</button>
+                          <button type="submit" [disabled]="!metierForm.valid || exist" (click)="addMetier()" class="btn btn-primary" data-dismiss="modal">Ajouter</button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="table-wrapper-scroll-y" style="max-height: 600px;">
+                
+                  <table class="table table-striped table-responsive-md btn-table">
+
+                  <thead class=" text-primary">
+                    <tr>
+                      <th scope="col"><strong>#</strong></th>
+                      <th scope="col"><strong>Nom</strong></th>
+                      <th scope="col">
+                          <a data-toggle="modal" data-target="#newMetierModal" class="btn btn-outline-yellow btn-sm m-0 waves-effect float-right">
+                              Nouveau Metier
+                          </a>
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr *ngFor="let metier of metiers">
+                      <td scope="row">{{metier.idMetier}}</td>
+                      <td>{{ metier.nameMetier }}</td>
+                      <td>
+                        <div class="float-right">
+                          <a data-target="#updateMetierModal" data-toggle="modal"  (click)="update(metier)" class="btn btn-outline-success btn-sm m-0 waves-effect">Modifier</a>
+                          
+                          <a data-target="#deleteMetierModal" data-toggle="modal" (click)="delete(metier)" class="btn btn-outline-danger btn-sm m-0 waves-effect">Supprimer</a>
+                        </div>
+                      </td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+    <app-footer></app-footer>
+
+
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="updateMetierModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form name="addForm" [formGroup]="metierForm" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal">Modifier le Métier</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+              <div class="md-form">
+                  <input type="hidden" id="id" 
+                  class="form-control"
+                  formControlName="id">
+                  <input type="text" 
+                    id="name" 
+                    class="form-control"
+                    formControlName="name"
+                    (keyup)="checkMetier()"
+                    [class.invalid]="Name.invalid && Name.touched"
+                    [class.valid]="Name.valid && Name.touched">
+                
+                  <div *ngIf="Name.touched && Name.invalid">
+                      <small *ngIf="Name.errors?.required" class="text-danger"><b>Le nom</b> est obligatoire</small>
+                  </div>
+                  <div *ngIf="exist">
+                      <small *ngIf="exist" class="text-danger"><b>Métier</b> existe déja</small>
+                  </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clearMetier()">Non, merci</button>
+          <button type="submit" [disabled]="!metierForm.valid || exist" (click)="updateMetier()" class="btn btn-primary" data-dismiss="modal">Modifier</button>
+        </div>
+        </form>
+      </div>
+    </div>
+</div>

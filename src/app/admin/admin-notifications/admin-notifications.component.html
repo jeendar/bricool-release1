@@ -1,0 +1,76 @@
+
+<div class="wrapper ">
+  <app-admin-nav></app-admin-nav>>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Notifications</h4>
+            <p class="card-category">
+              S'il vous plaît vérifier les notifications complètes
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="alert deep-purple lighten-4 alert-with-icon" data-notify="container">
+                  <i class="material-icons" data-notify="icon">add_alert</i>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="material-icons">close</i>
+                  </button>
+                  <span class="text-gray-50"data-notify="message">Un nouveau membre a rejoint aujourd'hui "Nom d'artisans"   <button type="button" class="btn purple-gradient btn-sm" (click)="goToArtisanList()"><i class="far fa-eye"></i></button></span>
+                </div>                
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="https://www.creative-tim.com">
+                Creative Tim
+              </a>
+            </li>
+            <li>
+              <a href="https://creative-tim.com/presentation">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="https://www.creative-tim.com/license">
+                Licenses
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right" id="date">
+          , made with <i class="material-icons">favorite</i> by
+          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+        </div>
+      </div>
+    </footer>
+    <script>
+      const x = new Date().getFullYear();
+      let date = document.getElementById('date');
+      date.innerHTML = '&copy; ' + x + date.innerHTML;
+    </script>
+
+
+  </div>
+</div>
+
+

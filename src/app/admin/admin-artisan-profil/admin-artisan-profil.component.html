@@ -1,0 +1,363 @@
+
+<div class="wrapper ">
+  <app-admin-nav></app-admin-nav>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-deconnecter></app-deconnecter>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <!-- Card -->
+            <div class="card card-cascade wider reverse">
+
+              <!-- Card image -->
+              <div class="view view-cascade overlay">
+                <img class="card-img-top" src="../../../assets/img/a1.jpg" alt="Card image cap" >
+                <a href="#!">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>{{artisan.firstname}} {{artisan.lastname}}</strong></h4>
+                <!-- Subtitle -->
+                <h6 class="font-weight-bold indigo-text py-2">Charpentier</h6>
+                <!-- Text -->
+                <p class="card-text">Le charpentier conçoit et réalise les ossatures qui serviront de support aux menuiseries et aux couvertures de bâtiments. Après le traçage des bois en atelier et l'exécution des assemblages, il réalise le levage et le montage sur chantier.
+                </p>
+
+                <!-- Linkedin -->
+                <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Twitter -->
+                <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+                <!-- Dribbble -->
+                <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-profile block-example border border-secondary">
+              <div class="card-avatar">
+                  <img class="img" src="{{artisan.picture}}" />
+
+              </div>
+
+              <div class="card-body">
+                <h6 class="card-category">{{artisan.firstname}} {{artisan.lastname}}</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Adress : {{artisan.street}} {{artisan.city}}</li>
+                  <li class="list-group-item">Tél : {{artisan.phone}}</li>
+                  <li class="list-group-item">Email : {{artisan.email}}</li>
+                  <li class="list-group-item">Projets <span class="badge badge-primary badge-pill">{{nbrPro}}</span></li>
+                </ul>
+                <div class="text-center">
+                  <a *ngIf = "!artisan.status"  class="btn btn-default btn-rounded my-3" (click)="validate()" >
+                    <i class="fas fa-edit"></i>Valider</a>
+                  <a *ngIf = "artisan.status && !artisan.role"  class="btn btn-default btn-rounded my-3" (click)="invalidate()" >
+                      <i class="fas fa-edit"></i>inValider</a>
+                  <a *ngIf = "artisan.status && !artisan.role"  class="btn btn-default btn-rounded my-3" (click)="promote()" >
+                      <i class="fas fa-edit"></i>Promouvoir</a>
+                  <a *ngIf = "artisan.role"  class="btn btn-default btn-rounded my-3" (click)="demote()" >
+                      <i class="fas fa-edit"></i>Rétrograder</a>
+                  <span *ngIf = "artisan.verified"  class="btn btn-default btn-rounded my-3">
+                    <i class="fas fa-check"></i> Verified</span> 
+                </div>
+                
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+              <div class="card  block-example border border-secondary">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Portfolio</h4>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                        <!-- Card -->
+                        <div class="card card-cascade narrower card-ecommerce">
+                          <!-- Card image -->
+                          <div class="view view-cascade overlay">
+                            <img src="../../../assets/images/Projets artisan/2.jpg" class="card-img-top"
+                              alt="sample photo">
+                            <a>
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title">
+                              <strong>
+                                <a href="">Titre</a>
+                              </strong>
+                            </h4>
+
+                            <p class="card-text">Description Description Description Description Description
+                            </p>
+                            <!-- Card footer -->
+                            <div class="card-footer px-1">
+                              <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                          <!-- Card -->
+                          <div class="card card-cascade narrower card-ecommerce">
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay">
+                              <img src="../../../assets/images/Projets artisan/3.jpg" class="card-img-top"
+                                alt="sample photo">
+                              <a>
+                                <div class="mask rgba-white-slight"></div>
+                              </a>
+                            </div>
+                            <div class="card-body card-body-cascade text-center">
+                              <h4 class="card-title">
+                                <strong>
+                                  <a href="">Titre</a>
+                                </strong>
+                              </h4>
+
+                              <p class="card-text">Description Description Description Description Description
+                              </p>
+                              <!-- Card footer -->
+                              <div class="card-footer px-1">
+                                <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                            <!-- Card -->
+                            <div class="card card-cascade narrower card-ecommerce">
+                              <!-- Card image -->
+                              <div class="view view-cascade overlay">
+                                <img src="../../../assets/images/Projets artisan/1.jpg" class="card-img-top"
+                                  alt="sample photo">
+                                <a>
+                                  <div class="mask rgba-white-slight"></div>
+                                </a>
+                              </div>
+                              <div class="card-body card-body-cascade text-center">
+                                <h4 class="card-title">
+                                  <strong>
+                                    <a href="">Titre</a>
+                                  </strong>
+                                </h4>
+
+                                <p class="card-text">Description Description Description Description Description
+                                </p>
+                                <!-- Card footer -->
+                                <div class="card-footer px-1">
+                                  <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Card -->
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                              <!-- Card -->
+                              <div class="card card-cascade narrower card-ecommerce">
+                                <!-- Card image -->
+                                <div class="view view-cascade overlay">
+                                  <img src="../../../assets/images/Projets artisan/1.jpg" class="card-img-top"
+                                    alt="sample photo">
+                                  <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                  </a>
+                                </div>
+                                <div class="card-body card-body-cascade text-center">
+                                  <h4 class="card-title">
+                                    <strong>
+                                      <a href="">Titre</a>
+                                    </strong>
+                                  </h4>
+
+                                  <p class="card-text">Description Description Description Description Description
+                                  </p>
+                                  <!-- Card footer -->
+                                  <div class="card-footer px-1">
+                                    <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Card -->
+                      </div>
+                    </div>
+                    <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+
+                        <!--Indicators-->
+                        <ol class="carousel-indicators">
+                          <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
+                          <li data-target="#carousel-with-lb" data-slide-to="1" class="secondary-color"></li>
+                          <li data-target="#carousel-with-lb" data-slide-to="2" class="secondary-color"></li>
+                        </ol>
+                        <!--/.Indicators-->
+
+                        <!--Slides and lightbox-->
+
+                        <div class="carousel-inner mdb-lightbox" role="listbox">
+                          <div id="mdb-lightbox-ui"></div>
+                          <!--First slide-->
+                          <div class=" carousel-item active text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/1.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/1.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/2.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/2.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="../../../assets/images/Projets artisan/3.jpg" data-size="1600x1067">
+                                <img src="../../../assets/images/Projets artisan/3.jpg" class="img-fluid" style="width: 300px;height: 200px;">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(10).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(10).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(12).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(12).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.First slide-->
+
+                          <!--Second slide-->
+                          <div class="carousel-item text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(33).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(33).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.Second slide-->
+
+                          <!--Third slide-->
+                          <div class="carousel-item text-center">
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(56).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(56).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+                            <figure class="col-md-4 d-md-inline-block">
+                              <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg" data-size="1600x1067">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg" class="img-fluid">
+                              </a>
+                            </figure>
+
+                          </div>
+                          <!--/.Third slide-->
+
+                        </div>
+                        <!--/.Slides-->
+
+                      </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+</div>
