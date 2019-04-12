@@ -4,7 +4,7 @@
     height:100%;
     width:100%;
     background-size: cover; 
-    background-image:url(../../../assets/images/bg3.PNG);
+    background-image:url(/src/assets/images/bg3.png);
 
   }
 
